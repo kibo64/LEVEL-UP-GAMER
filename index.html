@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - GameZone</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style type="text/tailwindcss">
+        @import "tailwindcss";
+        @import url('https://googleapis.com');
+        @theme {
+            --font-press: "Press Start 2P", cursive;
+            --font-exo: "Exo 2", sans-serif;
+        }
+    </style>
+</head>
+<body class="text-[#4CC9F0] font-exo bg-[#5A189A]">
+    <div class="bg-[#3C096C] p-4">
+        <header class="flex justify-between items-center">
+            <a href="#">Home</a>
+            <h1 class="text-[#F72585] font-press">GameZone</h1>
+            <a href="registro.html" class="bg-[#240046] rounded-xl shadow-sm shadow-[#4CC9F0]/50 p-2 text-sm hover:shadow-[#4CC9F0] hover:shadow-md active:scale-98 transition-all duration-200">Registrarse</a>
+        </header>
+    </div>
+
+    <div>
+    <section class="lg:w-[800px] lg:m-auto md:w-[600px] md:m-auto">
+        <form id="loginForm" class="mt-5 mx-4 rounded-xl overflow-hidden shadow-md shadow-[#4CC9F0]/60 ">
+
+            <h2 class="bg-[#F72585]/50 p-2 flex justify-center text-sm">Inicio de Sesión</h2>
+
+            <div class="bg-[#F72585]/70 p-2">
+                <label class="block mb-2" for="correo">Correo</label>
+                <input class="bg-[#F72585]/50 rounded-xl w-full p-2"
+                    type="email" 
+                    id="correo"
+                    placeholder="john@doe.com"
+                >
+                <p id="errorCorreo"></p>
+            </div>
+
+            <div class="bg-[#F72585]/70 p-2">
+                <label class="block mb-2" for="contrasena">Contraseña</label>
+                <input class="bg-[#F72585]/50 rounded-xl w-full p-2"
+                    type="password" 
+                    id="contrasena"
+                    placeholder="••••••••"
+                >
+                <p id="errorContrasena"></p>
+            </div>
+
+            <button id="iniciarSesion" class="bg-[#F72585]/70 p-2 w-full" type="submit">
+                Iniciar Sesión
+            </button>
+
+            <p class="bg-[#F72585]/70 p-2 flex justify-center p-3" id="mensajeLogin"></p>
+
+        </form>
+    </section>
+</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

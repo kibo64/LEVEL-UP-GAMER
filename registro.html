@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registro - GameZone</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <style type="text/tailwindcss">
+        @import "tailwindcss";
+
+        @theme {
+            --font-press: "Press Start 2P", cursive;
+            --font-exo: "Exo 2", sans-serif;
+        }
+    </style>
+</head>
+<body class="text-[#4CC9F0] font-exo bg-[#5A189A]">
+    <div class="bg-[#3C096C] p-4">
+        <header class="flex justify-between items-center">
+            <a href="#">
+                Home
+            </a>
+            <h1 class="text-[#F72585] font-press">GameZone
+            </h1>
+            <a href="index.html" class="bg-[#240046] rounded-xl shadow-sm shadow-[#4CC9F0]/50 p-2 text-sm hover:shadow-[#4CC9F0] hover:shadow-md active:scale-98 transition-all duration-200">Iniciar Sesión</a>
+        </header>
+    </div>
+
+    <div>
+        <section class="lg:w-[800px] lg:m-auto md:w-[600px] md:m-auto">
+            <form id="registroForm" class="mt-5 mx-4 rounded-xl overflow-hidden shadow-md shadow-[#4CC9F0]/60">
+                <h2 class="bg-[#F72585]/50 p-2 flex justify-center text-sm">Crear Cuenta</h2>
+                <div class="bg-[#F72585]/70 p-2">
+                    <label class="block mb-2" for="nombre">
+                        Nombre Completo
+                    </label>
+                    <input class="bg-[#F72585]/50 rounded-xl w-full p-2"
+                        type="text"
+                        id="nombre"
+                        maxlength="100"
+                        placeholder="Ingrese su nombre completo"
+                    >
+                    <p id="errorNombre"></p>
+                </div>
+                <div class="bg-[#F72585]/70 p-2">
+                    <label class="block mb-2" for="correo">
+                        Correo Electrónico
+                    </label>
+                    <input class="bg-[#F72585]/50 rounded-xl w-full p-2"
+                        type="email"
+                        id="correo"
+                        maxlength="60"
+                        placeholder="usuario@duoc.cl"
+                    >
+                    <p id="errorCorreo"></p>
+                </div>
+                <div class="bg-[#F72585]/70 p-2">
+                    <label class="block mb-2" for="contrasena">
+                        Contraseña
+                    </label>
+                    <input class="bg-[#F72585]/50 rounded-xl w-full p-2"
+                        type="password"
+                        id="contrasena"
+                        placeholder="Ingrese su contraseña"
+                    >
+                    <p id="errorContrasena"></p>
+                </div>
+                <div class="bg-[#F72585]/70 p-2">
+                    <label class="block mb-2" for="confirmarContrasena">
+                        Confirmar Contraseña
+                    </label>
+                    <input class="bg-[#F72585]/50 rounded-xl w-full p-2"
+                        type="password"
+                        id="confirmarContrasena"
+                        placeholder="Repita su contraseña"
+                    >
+                    <p id="errorConfirmar"></p>
+                </div>
+                <div class="bg-[#F72585]/70 p-2">
+                    <label class="block mb-2" for="telefono">
+                        Teléfono (opcional)
+                    </label>
+                    <input class="bg-[#F72585]/50 rounded-xl w-full p-2"
+                        type="tel"
+                        id="telefono"
+                        placeholder="+56912345678"
+                    >
+                    <p id="errorTelefono"></p>
+                </div>
+                <div class="bg-[#F72585]/70 p-2">
+                    <label class="block mb-2">
+                        Género favorito
+                    </label>
+                    <div class="bg-[#F72585]/50 rounded-xl w-full p-5 grid gap-5 grid-cols-3">
+                        <label>
+                            <input type="checkbox" name="genero" value="FICCION">
+                            Ficción
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="genero" value="NO FICCION">
+                            No ficción
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="genero" value="MISTERIO">
+                            Misterio
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="genero" value="TERROR">
+                            Terror
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="genero" value="SUSPENSO">
+                            Suspenso
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="genero" value="HISTORIA">
+                            Historia
+                        </label>
+                    </div>
+                    <p id="errorGenero"></p>
+                </div>
+                <button class="bg-[#F72585]/70 p-2 w-full" type="submit">
+                    Crear Cuenta
+                </button>
+                <p id="mensajeRegistro"></p>
+            </form>
+        </section>
+    </div>
+
+<script>
+
+    const registroForm = document.getElementById("registroForm");
+
+    registroForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const nombre = document.getElementById("nombre").value.trim();
+        const correo = document.getElementById("correo").value.trim();
+        const contrasena = document.getElementById("contrasena").value;
+        const confirmarContrasena = document.getElementById("confirmarContrasena").value;
+        const telefono = document.getElementById("telefono").value.trim();
+
+        const generos = document.querySelectorAll(
+            'input[name="genero"]:checked'
+        );
+
+        const errorNombre = document.getElementById("errorNombre");
+        const errorCorreo = document.getElementById("errorCorreo");
+        const errorContrasena = document.getElementById("errorContrasena");
+        const errorConfirmar = document.getElementById("errorConfirmar");
+        const errorTelefono = document.getElementById("errorTelefono");
+        const errorGenero = document.getElementById("errorGenero");
+        const mensajeRegistro = document.getElementById("mensajeRegistro");
+
+        errorNombre.textContent = "";
+        errorCorreo.textContent = "";
+        errorContrasena.textContent = "";
+        errorConfirmar.textContent = "";
+        errorTelefono.textContent = "";
+        errorGenero.textContent = "";
+        mensajeRegistro.textContent = "";
+
+        let hayError = false;
+
+        const nombreValido = /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/;
+
+        if (nombre === "") {
+
+            errorNombre.textContent = "Ingrese su nombre completo.";
+            hayError = true;
+
+        } else if (!nombreValido.test(nombre)) {
+
+            errorNombre.textContent =
+                "El nombre solo puede contener letras y espacios.";
+            hayError = true;
+
+        } else if (nombre.length > 100) {
+
+            errorNombre.textContent =
+                "El nombre no puede superar los 100 caracteres.";
+            hayError = true;
+        }
+
+        const correoValido = /^[^\s@]+@duoc\.cl$/;
+
+        if (correo === "") {
+
+            errorCorreo.textContent =
+                "Ingrese su correo electrónico.";
+            hayError = true;
+
+        } else if (correo.length > 60) {
+
+            errorCorreo.textContent =
+                "El correo no puede superar los 60 caracteres.";
+            hayError = true;
+
+        } else if (!correoValido.test(correo)) {
+
+            errorCorreo.textContent =
+                "El correo debe tener el formato usuario@duoc.cl.";
+            hayError = true;
+        }
+
+        const usuarioAnterior =
+            localStorage.getItem("usuarioGameZone");
+
+        if (usuarioAnterior !== null) {
+
+            const usuarioGuardado =
+                JSON.parse(usuarioAnterior);
+
+            if (correo === usuarioGuardado.correo) {
+
+                errorCorreo.textContent =
+                    "Este correo ya está registrado.";
+                hayError = true;
+            }
+        }
+
+        if (contrasena.length < 10) {
+
+            errorContrasena.textContent =
+                "La contraseña debe tener al menos 10 caracteres.";
+            hayError = true;
+
+        } else if (!/[A-Z]/.test(contrasena)) {
+            errorContrasena.textContent =
+                "Debe incluir al menos una letra mayúscula.";
+            hayError = true;
+
+        } else if (!/[a-z]/.test(contrasena)) {
+            errorContrasena.textContent =
+                "Debe incluir al menos una letra minúscula.";
+            hayError = true;
+
+        } else if (!/[0-9]/.test(contrasena)) {
+            errorContrasena.textContent =
+                "Debe incluir al menos un número.";
+            hayError = true;
+
+        } else if (!/[^A-Za-z0-9]/.test(contrasena)) {
+            errorContrasena.textContent =
+                "Debe incluir al menos un carácter especial.";
+            hayError = true;
+        }
+
+        if (confirmarContrasena === "") {
+            errorConfirmar.textContent =
+                "Confirme su contraseña.";
+            hayError = true;
+        } else if (contrasena !== confirmarContrasena) {
+            errorConfirmar.textContent =
+                "Las contraseñas no coinciden.";
+            hayError = true;
+        }
+
+        if (telefono !== "" && !/^[0-9+ ]+$/.test(telefono)) {
+
+            errorTelefono.textContent =
+                "Ingrese un número de teléfono válido.";
+            hayError = true;
+        }
+
+        if (generos.length === 0) {
+            errorGenero.textContent =
+                "Seleccione al menos un género favorito.";
+            hayError = true;
+        }
+
+        if (hayError) {
+            return;
+        }
+        const usuario = {
+            nombre: nombre,
+            correo: correo,
+            contrasena: contrasena,
+            telefono: telefono,
+            generos: Array.from(generos).map(
+                genero => genero.value
+            )
+        };
+        localStorage.setItem(
+            "usuarioGameZone",
+            JSON.stringify(usuario)
+        );
+        alert("Cuenta creada correctamente.");
+        window.location.href = "ingreso.html";
+    });
+</script>
+</body>
+</html>
