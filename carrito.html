@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - LEVEL-UP GAMER</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style type="text/tailwindcss">
+        @import "tailwindcss";
+        @theme {
+            --font-press: "Press Start 2P", cursive;
+            --font-exo: "Exo 2", sans-serif;
+        }
+    </style>
+</head>
+<body class="text-[#4CC9F0] font-exo bg-[#5A189A] min-h-screen flex flex-col">
+    <div class="bg-[#3C096C] p-4 shadow-md shadow-[#4CC9F0]/20">
+        <header class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <h1 class="text-[#F72585] font-press text-xl text-center">
+                LEVEL-UP GAMER
+            </h1>
+            <nav>
+                <ul class="flex flex-wrap justify-center gap-4 text-sm font-bold">
+                    <li>
+                        <a href="login.html" class="hover:text-[#F72585] transition-colors"> Login</a>
+                    </li>
+                    <li>
+                        <a href="index.html" class="hover:text-[#F72585] transition-colors">Catálogo </a>
+                    </li>
+                    <li>
+                        <a href="perfil.html" class="hover:text-[#F72585] transition-colors"> Mi Perfil</a>
+                    </li>
+                    <li>
+                        <a href="carrito.html" class="text-[#F72585]"> Carrito</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <main class="max-w-[1200px] w-full mx-auto p-4 mt-6 flex-grow">
+        <h2 class="text-2xl text-white font-bold mb-6 text-center">
+            Tu Carrito de Compras
+        </h2>
+        <div class="flex flex-col lg:flex-row gap-6">
+            <section
+                class="lg:w-2/3 bg-[#3C096C] rounded-xl p-4 shadow-md shadow-[#4CC9F0]/40 flex flex-col gap-4"
+                id="contenedor-carrito">
+                <p
+                    class="text-center text-white/70 py-8"
+                    id="mensaje-vacio">
+                    Cargando carrito...
+                </p>
+            </section>
+            <section
+                class="lg:w-1/3 bg-[#240046] rounded-xl p-6 shadow-md shadow-[#4CC9F0]/40 h-fit border border-[#F72585]/30">
+                <h3 class="text-lg font-bold text-white mb-4 border-b border-[#F72585]/30 pb-2">
+                    Resumen
+                </h3>
+                <div class="flex justify-between mb-2">
+                    <span class="text-sm">
+                        Subtotal:
+                    </span>
+                    <span id="subtotal">
+                        $0
+                    </span>
+                </div>
+                <div class="flex justify-between mb-2">
+                    <span class="text-sm">
+                        Descuento Duoc:
+                    </span>
+                    <span id="descuento">
+                        -$0
+                    </span>
+                </div>
+                <hr class="border-[#F72585]/30 my-3">
+                <div class="flex justify-between mb-4">
+                    <span class="text-sm font-bold">
+                        Total a pagar:
+                    </span>
+                    <span
+                        class="font-press text-sm text-[#F72585]"
+                        id="precio-total">
+                        $0
+                    </span>
+                </div>
+                <button
+                    class="w-full bg-[#F72585]/80 text-white rounded-lg px-4 py-3 font-bold hover:bg-[#F72585] shadow-sm shadow-[#F72585] transition-all">
+                    Proceder al Pago
+                </button>
+            </section>
+        </div>
+    </main>
+    <footer class="bg-[#240046] mt-12 p-6 text-center text-sm border-t border-[#F72585]/30">
+        <p> &copy; 2024 Level-Up Gamer. Todos los derechos reservados. </p>
+        <p class="opacity-70 mt-2"> Apoyando a la comunidad gamer local.</p>
+    </footer>
+    <script src="carrito.js"></script>
+</body>
+</html>
