@@ -8,9 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style type="text/tailwindcss">
         @import "tailwindcss";
-        @import url('https://googleapis.com');
         @theme {
             --font-press: "Press Start 2P", cursive;
             --font-exo: "Exo 2", sans-serif;
@@ -18,50 +18,91 @@
     </style>
 </head>
 <body class="text-[#4CC9F0] font-exo bg-[#5A189A]">
-    <div class="bg-[#3C096C] p-4">
-        <header class="flex justify-between items-center">
-            <a href="catalogo.html">Home</a>
-            <h1 class="text-[#F72585] font-press">LEVEL-UP GAMER</h1>
-            <a href="registro.html" class="bg-[#240046] rounded-xl shadow-sm shadow-[#4CC9F0]/50 p-2 text-sm hover:shadow-[#4CC9F0] hover:shadow-md active:scale-98 transition-all duration-200">Registrarse</a>
+
+    <div class="bg-[#3C096C] p-4 shadow-md shadow-[#4CC9F0]/20">
+        <header class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <h1 class="text-[#F72585] font-press text-xl text-center">LEVEL-UP GAMER</h1>
+
+            <nav>
+                <ul class="flex flex-wrap justify-center gap-4 text-sm font-bold">
+                    <li><a href="login.html" class="hover:text-[#F72585] transition-colors">Login</a></li>
+                    <li><a href="index.html" class="text-[#F72585]">Catálogo</a></li>
+                    <li>
+                        <a href="carrito.html" class="hover:text-[#F72585] transition-colors flex items-center gap-1">
+                            Carrito
+                            <span id="contador-carrito" class="hidden bg-[#F72585] text-white text-[10px] font-bold px-2 py-0.5 rounded-full transition-all">0</span>
+                        </a>
+                    </li>
+            </nav>
         </header>
     </div>
 
-    <div>
-    <section class="lg:w-[800px] lg:m-auto md:w-[600px] md:m-auto">
-        <form id="loginForm" class="mt-5 mx-4 rounded-xl overflow-hidden shadow-md shadow-[#4CC9F0]/60 ">
+    <main class="max-w-[1200px] mx-auto p-4 mt-6">
+        
+        <section class="mb-8 flex justify-center gap-3 flex-wrap">
+            <button class="btn-filtro bg-[#F72585]/70 text-white px-4 py-2 rounded-xl text-sm shadow-sm shadow-[#4CC9F0]/50 hover:bg-[#F72585] transition-all" data-filtro="Todos">Todos</button>
+            <button class="btn-filtro bg-[#240046] text-[#4CC9F0] px-4 py-2 rounded-xl text-sm border border-[#F72585]/50 hover:bg-[#F72585]/50 transition-all" data-filtro="Consolas">Consolas</button>
+            <button class="btn-filtro bg-[#240046] text-[#4CC9F0] px-4 py-2 rounded-xl text-sm border border-[#F72585]/50 hover:bg-[#F72585]/50 transition-all" data-filtro="Juegos de Mesa">Juegos de Mesa</button>
+            <button class="btn-filtro bg-[#240046] text-[#4CC9F0] px-4 py-2 rounded-xl text-sm border border-[#F72585]/50 hover:bg-[#F72585]/50 transition-all" data-filtro="Accesorios">Accesorios</button>
+        </section>
 
-            <h2 class="bg-[#F72585]/50 p-2 flex justify-center text-sm">Inicio de Sesión</h2>
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <article class="articulo-producto bg-[#3C096C] rounded-xl overflow-hidden shadow-md shadow-[#4CC9F0]/40 flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#4CC9F0]/80" data-categoria="Consolas">
+                <div class="h-48 bg-[#240046] flex items-center justify-center">
+                    <img src="src/ps5.webp" class="w-full h-full object-cover">
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <span class="text-xs text-[#F72585] font-bold mb-1">Consolas</span>
+                    <h3 class="text-lg font-bold text-white mb-2">PlayStation 5</h3>
+                    <p class="text-sm opacity-80 mb-4 flex-grow">La consola de última generación de Sony, que ofrece gráficos impresionantes y tiempos de carga ultrarrápidos.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-press text-xs text-[#4CC9F0]">$549.990</span>
+                        <button class="btn-agregar bg-[#F72585]/80 text-white rounded-lg px-3 py-2 text-xs hover:bg-[#F72585] active:scale-95 shadow-sm shadow-[#F72585] transition-all"
+                        data-id="C001" data-nombre="Playstation 5" data-precio="549990" data-imagen="src/ps5.webp">Añadir</button>
+                    </div>
+                </div>
+            </article>
 
-            <div class="bg-[#F72585]/70 p-2">
-                <label class="block mb-2" for="correo">Correo</label>
-                <input class="bg-[#F72585]/50 rounded-xl w-full p-2"
-                    type="email" 
-                    id="correo"
-                    placeholder="john@doe.com"
-                >
-                <p id="errorCorreo"></p>
-            </div>
+            <article class="articulo-producto bg-[#3C096C] rounded-xl overflow-hidden shadow-md shadow-[#4CC9F0]/40 flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#4CC9F0]/80" data-categoria="Juegos de Mesa">
+                <div class="h-48 bg-[#240046] flex items-center justify-center">
+                        <img src="src/catan.jpg" class="w-full h-full object-cover">
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <span class="text-xs text-[#F72585] font-bold mb-1">Juegos de Mesa</span>
+                    <h3 class="text-lg font-bold text-white mb-2">Catan</h3>
+                    <p class="text-sm opacity-80 mb-4 flex-grow">Un clásico juego de estrategia donde los jugadores compiten por colonizar y expandirse en la isla de Catan.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-press text-xs text-[#4CC9F0]">$29.990</span>
+                        <button class="btn-agregar bg-[#F72585]/80 text-white rounded-lg px-3 py-2 text-xs hover:bg-[#F72585] shadow-sm shadow-[#F72585] transition-all"
+                        data-id="C002" data-nombre="Catan" data-precio="29990" data-imagen="src/catan.jpg">Añadir</button>
+                    </div>
+                </div>
+            </article>
 
-            <div class="bg-[#F72585]/70 p-2">
-                <label class="block mb-2" for="contrasena">Contraseña</label>
-                <input class="bg-[#F72585]/50 rounded-xl w-full p-2"
-                    type="password" 
-                    id="contrasena"
-                    placeholder="••••••••"
-                >
-                <p id="errorContrasena"></p>
-            </div>
+            <article class="articulo-producto bg-[#3C096C] rounded-xl overflow-hidden shadow-md shadow-[#4CC9F0]/40 flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#4CC9F0]/80" data-categoria="Accesorios">
+                <div class="h-48 bg-[#240046] flex items-center justify-center">
+                    <img src="src/hyperx.avif" class="w-full h-full object-cover">
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <span class="text-xs text-[#F72585] font-bold mb-1">Accesorios</span>
+                    <h3 class="text-lg font-bold text-white mb-2">Auriculares Gamer HyperX Cloud II</h3>
+                    <p class="text-sm opacity-80 mb-4 flex-grow">Proporcionan un sonido envolvente de calidad con un micrófono desmontable y almohadillas de espuma viscoelástica.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="font-press text-xs text-[#4CC9F0]">$79.990</span>
+                        <button class="btn-agregar bg-[#F72585]/80 text-white rounded-lg px-3 py-2 text-xs hover:bg-[#F72585] shadow-sm shadow-[#F72585] transition-all"
+                        data-id="C003" data-nombre="HyperX Cloud II" data-precio="79990" data-imagen="src/hyperx.avif">Añadir</button>
+                    </div>
+                </div>
+            </article>
 
-            <button id="iniciarSesion" class="bg-[#F72585]/70 p-2 w-full" type="submit">
-                Iniciar Sesión
-            </button>
+        </section>
+    </main>
 
-            <p class="bg-[#F72585]/70 p-2 flex justify-center p-3" id="mensajeLogin"></p>
-
-        </form>
-    </section>
-</div>
-    </div>
-    <script src="script.js"></script>
+    <footer class="bg-[#240046] mt-12 p-6 text-center text-sm border-t border-[#F72585]/30">
+        <p>&copy; 2024 Level-Up Gamer. Todos los derechos reservados.</p>
+        <p class="opacity-70 mt-2">Apoyando a la comunidad gamer local.</p>
+    </footer>
+    <script src="catalogo.js"></script>
 </body>
 </html>

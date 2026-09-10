@@ -18,135 +18,102 @@
     </style>
 </head>
 <body class="text-[#4CC9F0] font-exo bg-[#5A189A]">
-    <div class="bg-[#3C096C] p-4">
-        <header class="flex justify-between items-center">
-            <a href="catalogo.html">
-                Home
+    <div class="bg-[#3C096C] p-4 shadow-md shadow-[#4CC9F0]/20">
+        <header class="max-w-[1200px] mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-white hover:text-[#F72585] font-bold text-sm transition-colors">
+                Volver al Catálogo
             </a>
-            <h1 class="text-[#F72585] font-press">LEVEL-UP GAMER
-            </h1>
-            <a href="index.html" class="bg-[#240046] rounded-xl shadow-sm shadow-[#4CC9F0]/50 p-2 text-sm hover:shadow-[#4CC9F0] hover:shadow-md active:scale-98 transition-all duration-200">Iniciar Sesión</a>
+            <h1 class="text-[#F72585] font-press text-xl">LEVEL-UP GAMER</h1>
+            <a href="login.html" class="bg-[#240046] rounded-xl shadow-sm shadow-[#4CC9F0]/50 px-4 py-2 text-sm text-[#4CC9F0] hover:shadow-[#4CC9F0] hover:shadow-md active:scale-95 transition-all duration-200">
+                Iniciar Sesión
+            </a>
         </header>
     </div>
 
-    <div>
-        <section class="lg:w-[800px] lg:m-auto md:w-[600px] md:m-auto">
-            <form id="registroForm" class="mt-5 mx-4 rounded-xl overflow-hidden shadow-md shadow-[#4CC9F0]/60">
-                <h2 class="bg-[#F72585]/50 p-2 flex justify-center text-sm">Crear Cuenta</h2>
-                <div class="bg-[#F72585]/70 p-2">
-                    <label class="block mb-2" for="nombre">
-                        Nombre Completo
-                    </label>
-                    <input class="bg-[#F72585]/50 rounded-xl w-full p-2"
-                        type="text"
-                        id="nombre"
-                        maxlength="100"
-                        placeholder="Ingrese su nombre completo"
-                    >
-                    <p id="errorNombre"></p>
+    <main class="max-w-[1200px] mx-auto p-4 mt-8 flex justify-center mb-12">
+        <section class="w-full max-w-[600px]">
+            <form id="registroForm" class="bg-[#3C096C] rounded-2xl shadow-lg shadow-[#4CC9F0]/30 p-8 flex flex-col gap-4 border border-[#F72585]/20">
+                
+                <h2 class="text-[#F72585] font-press text-center text-lg mb-4">CREAR CUENTA</h2>
+
+                <div class="flex flex-col gap-1">
+                    <label class="text-white text-sm font-bold tracking-wide" for="nombre">Nombre Completo</label>
+                    <input class="bg-[#240046] border border-[#F72585]/40 text-white rounded-lg w-full p-3 focus:outline-none focus:border-[#4CC9F0] focus:ring-1 focus:ring-[#4CC9F0] transition-all placeholder-white/30"
+                        type="text" id="nombre" maxlength="100" placeholder="Ej. Gordon Freeman">
+                    <p id="errorNombre" class="text-red-400 text-xs min-h-[16px]"></p>
                 </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex flex-col gap-1">
+                        <label class="text-white text-sm font-bold tracking-wide" for="fechaNacimiento">Fecha de Nacimiento</label>
+                        <input class="bg-[#240046] border border-[#F72585]/40 text-white/80 rounded-lg w-full p-3 focus:outline-none focus:border-[#4CC9F0] focus:ring-1 focus:ring-[#4CC9F0] transition-all"
+                            type="date" id="fechaNacimiento">
+                        <p id="errorFechaNacimiento" class="text-red-400 text-xs min-h-[16px]"></p>
+                    </div>
+
+                    <div class="flex flex-col gap-1">
+                        <label class="text-white text-sm font-bold tracking-wide" for="correo">Correo Electrónico</label>
+                        <input class="bg-[#240046] border border-[#F72585]/40 text-white rounded-lg w-full p-3 focus:outline-none focus:border-[#4CC9F0] focus:ring-1 focus:ring-[#4CC9F0] transition-all placeholder-white/30"
+                            type="email" id="correo" maxlength="60" placeholder="jugador@levelup.com">
+                        <p id="errorCorreo" class="text-red-400 text-xs min-h-[16px]"></p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex flex-col gap-1">
+                        <label class="text-white text-sm font-bold tracking-wide" for="contrasena">Contraseña</label>
+                        <input class="bg-[#240046] border border-[#F72585]/40 text-white rounded-lg w-full p-3 focus:outline-none focus:border-[#4CC9F0] focus:ring-1 focus:ring-[#4CC9F0] transition-all placeholder-white/30"
+                            type="password" id="contrasena" placeholder="••••••••">
+                        <p id="errorContrasena" class="text-red-400 text-xs min-h-[16px]"></p>
+                    </div>
                     
-                <div class="bg-[#F72585]/70 p-2">
-                    <label class="block mb-2" for="fechaNacimiento">
-                        Fecha de Nacimiento
-                    </label>
-
-                    <input class="bg-[#F72585]/50 rounded-xl w-full p-2"
-                        type="date"
-                        id="fechaNacimiento"
-                    >
-
-                    <p id="errorFechaNacimiento"></p>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-white text-sm font-bold tracking-wide" for="confirmarContrasena">Confirmar Contraseña</label>
+                        <input class="bg-[#240046] border border-[#F72585]/40 text-white rounded-lg w-full p-3 focus:outline-none focus:border-[#4CC9F0] focus:ring-1 focus:ring-[#4CC9F0] transition-all placeholder-white/30"
+                            type="password" id="confirmarContrasena" placeholder="••••••••">
+                        <p id="errorConfirmar" class="text-red-400 text-xs min-h-[16px]"></p>
+                    </div>
                 </div>
-                <div class="bg-[#F72585]/70 p-2">
-                    <label class="block mb-2" for="correo">
-                        Correo Electrónico
-                    </label>
-                    <input class="bg-[#F72585]/50 rounded-xl w-full p-2"
-                        type="email"
-                        id="correo"
-                        maxlength="60"
-                        placeholder="usuario@duoc.cl"
-                    >
-                    <p id="errorCorreo"></p>
+
+                <div class="flex flex-col gap-1">
+                    <label class="text-white text-sm font-bold tracking-wide" for="telefono">Teléfono (Opcional)</label>
+                    <input class="bg-[#240046] border border-[#F72585]/40 text-white rounded-lg w-full p-3 focus:outline-none focus:border-[#4CC9F0] focus:ring-1 focus:ring-[#4CC9F0] transition-all placeholder-white/30"
+                        type="tel" id="telefono" placeholder="+56912345678">
+                    <p id="errorTelefono" class="text-red-400 text-xs min-h-[16px]"></p>
                 </div>
-                <div class="bg-[#F72585]/70 p-2">
-                    <label class="block mb-2" for="contrasena">
-                        Contraseña
-                    </label>
-                    <input class="bg-[#F72585]/50 rounded-xl w-full p-2"
-                        type="password"
-                        id="contrasena"
-                        placeholder="Ingrese su contraseña"
-                    >
-                    <p id="errorContrasena"></p>
-                </div>
-                <div class="bg-[#F72585]/70 p-2">
-                    <label class="block mb-2" for="confirmarContrasena">
-                        Confirmar Contraseña
-                    </label>
-                    <input class="bg-[#F72585]/50 rounded-xl w-full p-2"
-                        type="password"
-                        id="confirmarContrasena"
-                        placeholder="Repita su contraseña"
-                    >
-                    <p id="errorConfirmar"></p>
-                </div>
-                <div class="bg-[#F72585]/70 p-2">
-                    <label class="block mb-2" for="telefono">
-                        Teléfono (opcional)
-                    </label>
-                    <input class="bg-[#F72585]/50 rounded-xl w-full p-2"
-                        type="tel"
-                        id="telefono"
-                        placeholder="+56912345678"
-                    >
-                    <p id="errorTelefono"></p>
-                </div>
-                <div class="bg-[#F72585]/70 p-2">
-                    <label class="block mb-2">
-                        Género favorito
-                    </label>
-                    <div class="bg-[#F72585]/50 rounded-xl w-full p-5 grid gap-5 grid-cols-3">
-                        <label>
-                            <input type="checkbox" name="genero" value="FICCION">
-                            Ficción
-                        </label>
 
-                        <label>
-                            <input type="checkbox" name="genero" value="NO FICCION">
-                            No ficción
+                <div class="flex flex-col gap-1">
+                    <label class="text-white text-sm font-bold tracking-wide">Tus Géneros Favoritos</label>
+                    <div class="bg-[#240046] border border-[#F72585]/40 rounded-lg p-4 grid grid-cols-2 md:grid-cols-3 gap-3">
+                        <label class="flex items-center gap-2 text-sm text-white/80 cursor-pointer hover:text-white">
+                            <input type="checkbox" name="genero" value="RPG" class="accent-[#F72585] w-4 h-4"> RPG
                         </label>
-
-                        <label>
-                            <input type="checkbox" name="genero" value="MISTERIO">
-                            Misterio
+                        <label class="flex items-center gap-2 text-sm text-white/80 cursor-pointer hover:text-white">
+                            <input type="checkbox" name="genero" value="SHOOTER" class="accent-[#F72585] w-4 h-4"> Shooter
                         </label>
-
-                        <label>
-                            <input type="checkbox" name="genero" value="TERROR">
-                            Terror
+                        <label class="flex items-center gap-2 text-sm text-white/80 cursor-pointer hover:text-white">
+                            <input type="checkbox" name="genero" value="DEPORTES" class="accent-[#F72585] w-4 h-4"> Deportes
                         </label>
-
-                        <label>
-                            <input type="checkbox" name="genero" value="SUSPENSO">
-                            Suspenso
+                        <label class="flex items-center gap-2 text-sm text-white/80 cursor-pointer hover:text-white">
+                            <input type="checkbox" name="genero" value="ESTRATEGIA" class="accent-[#F72585] w-4 h-4"> Estrategia
                         </label>
-
-                        <label>
-                            <input type="checkbox" name="genero" value="HISTORIA">
-                            Historia
+                        <label class="flex items-center gap-2 text-sm text-white/80 cursor-pointer hover:text-white">
+                            <input type="checkbox" name="genero" value="AVENTURA" class="accent-[#F72585] w-4 h-4"> Aventura
+                        </label>
+                        <label class="flex items-center gap-2 text-sm text-white/80 cursor-pointer hover:text-white">
+                            <input type="checkbox" name="genero" value="LUCHA" class="accent-[#F72585] w-4 h-4"> Lucha
                         </label>
                     </div>
-                    <p id="errorGenero"></p>
+                    <p id="errorGenero" class="text-red-400 text-xs min-h-[16px]"></p>
                 </div>
-                <button class="bg-[#F72585]/70 p-2 w-full" type="submit">
+                <button class="bg-[#F72585]/90 text-white font-bold rounded-lg p-3 w-full shadow-md shadow-[#F72585]/50 hover:bg-[#F72585] hover:shadow-lg hover:shadow-[#F72585]/80 active:scale-95 transition-all mt-2" type="submit">
                     Crear Cuenta
                 </button>
-                <p id="mensajeRegistro"></p>
+                <p id="mensajeRegistro" class="text-center text-sm min-h-[20px]"></p>
+
             </form>
         </section>
-    </div>
+    </main>
 
 <script src="Registro.js"></script>
 </body>
