@@ -6,11 +6,9 @@ function renderizarCarrito() {
     const contenedor = document.getElementById('contenedor-carrito');
     const mensajeVacio = document.getElementById('mensaje-vacio');
     const precioTotal = document.getElementById('precio-total');
-<<<<<<< HEAD
     const subtotalTexto = document.getElementById('subtotal');
     const descuentoTexto = document.getElementById('descuento');
-=======
->>>>>>> 970ddc9fb18b4ff93d95281329754951320ca21d
+
     
     let carrito = JSON.parse(localStorage.getItem('carritoGamer')) || [];
     let total = 0;
@@ -50,8 +48,6 @@ function renderizarCarrito() {
         `;
         contenedor.appendChild(articulo);
     });
-
-<<<<<<< HEAD
     const usuarioguardado = localStorage.getItem("usuarioGameZone");
     let descuento = 0;
 
@@ -70,14 +66,6 @@ function renderizarCarrito() {
     precioTotal.innerText = `$${totalFinal.toLocaleString('es-Cl')}`
 }
 
-
-
-
-=======
-    precioTotal.innerText = `$${total.toLocaleString('es-CL')}`;
-}
-
->>>>>>> 970ddc9fb18b4ff93d95281329754951320ca21d
 function modificarCantidad(id, cambio) {
     let carrito = JSON.parse(localStorage.getItem('carritoGamer')) || [];
     const producto = carrito.find(item => item.id === id);
