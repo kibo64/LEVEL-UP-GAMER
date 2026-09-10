@@ -61,9 +61,9 @@ function renderizarCarrito() {
 
     const totalFinal = total - descuento;
 
-    subtotalTexto.innerText = `$${total.toLocaleString('es-Cl')}`
-    descuentoTexto.innerText = `$${descuento.toLocaleString('es-Cl')}`
-    precioTotal.innerText = `$${totalFinal.toLocaleString('es-Cl')}`
+    subtotalTexto.innerText = `$${total.toLocaleString('es-CL')}`
+    descuentoTexto.innerText = `$${descuento.toLocaleString('es-CL')}`
+    precioTotal.innerText = `$${totalFinal.toLocaleString('es-CL')}`
 }
 
 function modificarCantidad(id, cambio) {
